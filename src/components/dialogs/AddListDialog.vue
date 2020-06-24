@@ -25,7 +25,7 @@
 <script>
     export default {
         name: "AddListDialog",
-        props:{
+        props: {
             isOpen: {
                 type: Boolean,
                 default: false

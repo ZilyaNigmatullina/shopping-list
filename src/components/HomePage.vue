@@ -1,13 +1,15 @@
 <template>
     <v-container>
         <v-row>
-            <v-col cols="4">
-                      <ToBuyLists> </ToBuyLists>
+            <v-col cols="1"></v-col>
+
+            <v-col cols="3">
+                <ToBuyLists></ToBuyLists>
             </v-col>
 
             <v-col cols="8">
                 <v-row>
-                    <router-view></router-view>
+                    <ToBuyListsItems></ToBuyListsItems>
                 </v-row>
             </v-col>
         </v-row>
@@ -24,12 +26,6 @@
         components: {
             ToBuyLists,
             ToBuyListsItems
-        },
-        created() {
-            this.$store.dispatch('getLists')
-        },
-        beforeDestroy() {
-            this.$store.dispatch('saveLists')
         },
     }
 </script>

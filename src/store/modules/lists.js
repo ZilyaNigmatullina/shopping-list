@@ -1,24 +1,6 @@
 export default {
-    actions: {
-        getLists({commit}) {
-            if(localStorage.getItem('lists')) {
-                try {
-                   let f = JSON.parse(localStorage.getItem('lists'))
-                    commit('setList', f);
-                } catch(e) {
-                    localStorage.removeItem('lists');
-                }
-            }
-        },
-        saveLists({state}) {
-            const parsed = JSON.stringify(state.lists);
-            localStorage.setItem('lists', parsed);
-        }
-    },
+    actions: {},
     mutations: {
-       setList(state, payload){
-            state.lists = payload
-        },
         removeList(state, id) {
             let index = state.lists.findIndex(list => list.id === id)
             state.lists.splice(index, 1);
@@ -89,13 +71,13 @@ export default {
             },
             {
                 id: 2, name: 'Продукты', items: [
-                    {id: 21, text: 'молоко', count: 1, measure: 'шт', bought: false},
+                    {id: 21, text: 'молоко', count: 1, measure: 'л', bought: false},
                     {id: 22, text: 'хлеб', count: 1, measure: 'шт', bought: false}
                 ]
             },
             {
                 id: 3, name: 'Машина', items: [
-                    {id: 32, text: 'ооллл', count: 1, measure: 'шт', bought: false}
+                    {id: 32, text: 'аптечка', count: 1, measure: 'шт', bought: false}
                 ]
             },
         ],
@@ -105,7 +87,6 @@ export default {
             return state.lists
         },
         listById: state => id => {
-            console.log(id, !!state.lists)
             return state.lists ? state.lists.find(list => list.id === id) : null
         }
     },

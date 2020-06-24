@@ -60,6 +60,7 @@
 <script>
     export default {
         name: "AddNewItemDialog",
+
         props: {
             isOpen: {
                 type: Boolean,
@@ -72,6 +73,7 @@
         data: () => ({
             measure: ['шт', 'кг', 'л'],
         }),
+
         methods: {
             addNewItem(listId, newItemName, newItemCount, newItemMeasure) {
                 this.$store.commit(

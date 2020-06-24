@@ -82,7 +82,7 @@
         <EditItemDialog :is-open="editItemDialog.open"
                         @closeEditItemDialog="value => editItemDialog.open = value"
                         :editedItem="editItemDialog.item"
-                        :listId="listById.id"> </EditItemDialog>
+                        :listId="listById.id"></EditItemDialog>
 
         <AddNewItemDialog :is-open="addNewItemDialog.open"
                           @closeAddNewItemDialog="value => addNewItemDialog.open = value"
