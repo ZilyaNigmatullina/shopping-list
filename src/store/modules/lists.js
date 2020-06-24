@@ -1,6 +1,24 @@
 export default {
-    actions: {},
+    actions: {
+        getLists({commit}) {
+            if(localStorage.getItem('lists')) {
+                try {
+                   let f = JSON.parse(localStorage.getItem('lists'))
+                    commit('setList', f);
+                } catch(e) {
+                    localStorage.removeItem('lists');
+                }
+            }
+        },
+        saveLists({state}) {
+            const parsed = JSON.stringify(state.lists);
+            localStorage.setItem('lists', parsed);
+        }
+    },
     mutations: {
+       setList(state, payload){
+            state.lists = payload
+        },
         removeList(state, id) {
             let index = state.lists.findIndex(list => list.id === id)
             state.lists.splice(index, 1);
@@ -57,7 +75,7 @@ export default {
                     item.bought = itm.bought
                 }
             }
-        }
+        },
     },
     state: {
         lists: [
@@ -80,7 +98,7 @@ export default {
                     {id: 32, text: 'ооллл', count: 1, measure: 'шт', bought: false}
                 ]
             },
-        ]
+        ],
     },
     getters: {
         allLists(state) {

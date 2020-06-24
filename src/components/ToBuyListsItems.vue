@@ -1,6 +1,6 @@
 <template>
     <div v-if="!$route.params.id"> Выберите список</div>
-    <div v-else>
+    <div v-else-if="listById">
         <v-card>
 
             <v-card-title>
@@ -127,8 +127,11 @@
         }),
 
         computed: {
+            routeId() {
+                return this.$route.params.id
+            },
             listById() {
-                return this.$store.getters.listById(this.$route.params.id);
+                return this.routeId ? this.$store.getters.listById(this.routeId) : null
             },
             sortListItemsById() {
                 let arr = this.listById.items.slice()

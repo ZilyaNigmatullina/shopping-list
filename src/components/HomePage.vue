@@ -7,7 +7,7 @@
 
             <v-col cols="8">
                 <v-row>
-                    <ToBuyListsItems></ToBuyListsItems>
+                    <router-view></router-view>
                 </v-row>
             </v-col>
         </v-row>
@@ -24,6 +24,12 @@
         components: {
             ToBuyLists,
             ToBuyListsItems
+        },
+        created() {
+            this.$store.dispatch('getLists')
+        },
+        beforeDestroy() {
+            this.$store.dispatch('saveLists')
         },
     }
 </script>

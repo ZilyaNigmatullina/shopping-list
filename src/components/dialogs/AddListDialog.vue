@@ -34,6 +34,7 @@
         data: () => ({
             newListName: '',
         }),
+
         methods: {
             addNewList() {
                 this.$store.commit('addList', this.newListName)
