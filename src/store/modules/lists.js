@@ -25,7 +25,7 @@ export default {
                 id: Date.now(),
                 text: newItem.name,
                 count: newItem.count,
-                measure: newItem['measure'],
+                measure: newItem.measure, //['measure'],
                 bought: false
             }
             state.lists.find(list => list.id === newItem.id).items.push(newItm)
